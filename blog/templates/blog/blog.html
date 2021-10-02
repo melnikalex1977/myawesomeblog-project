@@ -32,45 +32,25 @@
          <div class="navbar-nav ms-auto">
           <a class="nav-link" href="#">About Me</a>
           <a class="nav-link" href="#">Facebook</a>
-          <a class="nav-link" href="#">Blog</a>
+          <a class="nav-link active" href="#">Blog</a>
          </div>
        </div>
       </div>
     </nav>
   </header>
 
-    <main role="main">
-
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading"></h1>
-          <p class="lead text-muted">Hey there! I'm excited to see you here! You can write me right now!</p>
-          <p>
-            <a href="mailto:melnikalex2014@gmail.com" class="btn btn-primary my-2">Mail me</a>
-          </p>
-        </div>
-      </section>
-
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-            {% for event in events.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ event.event_image.url }}"/>
-                <div class="card-body">
-                  <p class="card-text">Thumbnail</p>
-                  <p class="card-text">{{ event.event_text }}</p>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-
-                    
-          </div>
-        </div>
-      </div>
+    <main role="main" class="pl-3">
+    	<h1 class="pt-5 pb-5">Recept post</h1>
+      {% for post in posts.all %}
+      <h2>{{ post.title}}</h2>
+      <br/>
+      <img src="{{ post.image.url }}" height=300 width=300 class="img-fluid">
+      <br/>
+      <p>{{ post.text}}</p>
+      <p>{{ post.date}}</p>
+      <br/>
+      <br/>
+      {% endfor %}
     </main>
     
   </body>
